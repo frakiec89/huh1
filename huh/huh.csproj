@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\bar-graph.png" />
+    <None Remove="Images\close.png" />
+    <None Remove="Images\graph.png" />
+    <None Remove="Images\graphic.png" />
+    <None Remove="Images\pie-chart.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\bar-graph.png" />
+    <Resource Include="Images\close.png" />
+    <Resource Include="Images\graph.png" />
+    <Resource Include="Images\graphic.png" />
+    <Resource Include="Images\pie-chart.png" />
+  </ItemGroup>
+
+</Project>
