@@ -16,6 +16,8 @@ namespace huh
     /// </summary>
     public partial class MainWindow : Window
     {
+        Graph graph = new Graph();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace huh
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             FirstSP.Visibility = Visibility.Collapsed;
-            SettingsSP.Visibility = Visibility.Visible;
+            spSettingLabel.Visibility = Visibility.Visible;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -34,18 +36,49 @@ namespace huh
 
         private void btnPChart_Click(object sender, RoutedEventArgs e)
         {
+            spExport.Visibility = Visibility.Visible;
 
         }
 
-
         private void btnHGrahp_Click(object sender, RoutedEventArgs e)
         {
-
+            spExport.Visibility = Visibility.Visible;
         }
 
         private void btnVGraph_Click(object sender, RoutedEventArgs e)
         {
+            spExport.Visibility = Visibility.Visible;
 
+        }
+
+        private void btnTyping_Click(object sender, RoutedEventArgs e)
+        {
+            spManualInput.Visibility = Visibility.Visible;
+        }
+
+        private void btnExcel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnJsonf_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            spValue.Visibility = Visibility.Visible;
         }
     }
 }

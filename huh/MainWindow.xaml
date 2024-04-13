@@ -10,11 +10,10 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
-            
             <ColumnDefinition Width="500"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="35"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!--DONT FORGET ABOUT VISIBILITY-->
@@ -80,126 +79,388 @@
                 </Button.Template>
             </Button>
         </StackPanel>
-        
-        <!--Setting for charts-->
-        <StackPanel Name="SettingsSP" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Visible">
-            <Label Margin="20,20,20,5" Foreground="White" FontSize="20" Content="Creating Diagramms"/>
+
+        <!--StackPanel for setting for charts-->
+        <StackPanel Name="spSettingLabel" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" Height="590">
+            <Label Margin="50,20,20,5" Foreground="White" FontSize="20" Content="Creating Diagramms"/>
             <Grid>
                 <Grid.RenderTransform>
                     <RotateTransform Angle="0"/>
                 </Grid.RenderTransform>
                 <StackPanel Orientation="Horizontal">
-                    <Border Width="230" Height="3" CornerRadius="3" Background="#FFC143" Margin="0,0,0,5"/>
+                    <Border Width="250" Height="3" CornerRadius="3" Background="#FFC143" Margin="20,0,0,5"/>
                 </StackPanel>
             </Grid>
-            <Label Content="Choose type of diagramm:" Foreground="White" FontSize="18" />
-            <StackPanel Orientation="Horizontal">
-                <Button Name="btnPChart" BorderThickness="0" Click="btnPChart_Click" Margin="10"  Background="Transparent">
-                    <StackPanel>
-                        <Image Source="Images/pie-chart.png" Width="70"/>
-                    </StackPanel>
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="Button">
-                                                <Grid Background="{TemplateBinding Background}">
-                                                    <ContentPresenter HorizontalAlignment="Center"
+
+
+
+            <StackPanel Name="spSettings" Height="520">
+                
+                <!--StackPanel with buttons for type of charts-->
+                <StackPanel Name="spTypyOfDiagram">
+                    <Label Content="Choose type of diagram:" Foreground="White" FontSize="18" Margin="15,10,10,10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnPChart" ToolTip="Pie Chart" BorderThickness="0" Click="btnPChart_Click" Margin="15,10,10,10"  Background="Transparent">
+                            <StackPanel>
+                                <Image Source="Images/pie-chart.png" Width="70"/>
+                            </StackPanel>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center"
                                                                         VerticalAlignment="Center"/>
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
 
-                <Button Name="btnHGrahp" BorderThickness="0" Click="btnHGrahp_Click" Margin="10"  Background="Transparent">
-                    <StackPanel>
-                        <Image Source="Images/bar-graph.png" Width="53"/>
-                    </StackPanel>
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="Button">
-                                                <Grid Background="{TemplateBinding Background}">
-                                                    <ContentPresenter HorizontalAlignment="Center"
+                        <Button Name="btnHGrahp" ToolTip="Horizontal Graphic" BorderThickness="0" Click="btnHGrahp_Click" Margin="10"  Background="Transparent">
+                            <StackPanel>
+                                <Image Source="Images/bar-graph.png" Width="53"/>
+                            </StackPanel>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center"
                                                         VerticalAlignment="Center"/>
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
 
-                <Button Name="btnVGraph" BorderThickness="0" Click="btnVGraph_Click" Margin="10"  Background="Transparent">
-                    <StackPanel>
-                        <Image Source="Images/graphic.png" Width="58"/>
-                    </StackPanel>
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="Button">
-                                                <Grid Background="{TemplateBinding Background}">
-                                                    <ContentPresenter HorizontalAlignment="Center"
+                        <Button Name="btnVGraph" ToolTip="Vertical Graphic" BorderThickness="0" Click="btnVGraph_Click" Margin="10"  Background="Transparent">
+                            <StackPanel>
+                                <Image Source="Images/graphic.png" Width="58"/>
+                            </StackPanel>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center"
                                                          VerticalAlignment="Center"/>
-                                                </Grid>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+
+
+                <!--StackPanel with buttons for type of export-->
+                <StackPanel Name="spExport" Visibility="Collapsed">
+                    <Label Content="Choose type of exporting data:" Foreground="White" FontSize="18" Margin="15,10,10,10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnTyping" ToolTip="Manual input" BorderThickness="0" Click="btnTyping_Click" Margin="15,10,10,10"  Background="Transparent">
+                            <StackPanel>
+                                <Image Source="Images/typing.png" Width="65"/>
+                            </StackPanel>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button Name="btnExcel" ToolTip="Export from Excel" BorderThickness="0" Click="btnExcel_Click" Margin="10"  Background="Transparent">
+                            <StackPanel>
+                                <Image Source="Images/exelf.png" Width="75"/>
+                            </StackPanel>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+
+                        <Button Name="btnJsonf" ToolTip="Export from Json" BorderThickness="0" Click="btnJsonf_Click" Margin="5"  Background="Transparent">
+                            <StackPanel>
+                                <Image Source="Images/jsonf.png" Width="75"/>
+                            </StackPanel>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                
+                <!--StackPanel for manual input-->
+                <StackPanel Name="spManualInput" Orientation="Vertical" Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Enter number of fields:" Foreground="White" FontSize="14" Margin="10" />
+                        <TextBox Name="tbFields" Padding="5" ToolTip="Enter number from 1 to 15" Foreground="White" Background="Transparent" BorderBrush="#FFC143" Width="90" Height="30">
+                            <TextBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+                        <Button Name="btnNext" ToolTip="Next" BorderThickness="0" Click="btnNext_Click" Margin="5"  Background="Transparent">
+                            <StackPanel>
+                                <Image Source="Images/play.png" Width="20"/>
+                            </StackPanel>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="RenderTransform">
+                                                <Setter.Value>
+                                                    <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid Background="{TemplateBinding Background}">
+                                                            <ContentPresenter HorizontalAlignment="Center"
+                                                                                VerticalAlignment="Center"/>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Name="spValue" Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Enter name of graph:" Foreground="White" FontSize="14" Margin="10" />
+                            <TextBox Name="tbGraphName" Padding="5" Foreground="White" Background="Transparent" BorderBrush="#FFC143" Width="90" Height="30">
+                                <TextBox.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Enter value of graph:" Foreground="White" FontSize="14" Margin="10" />
+                            <TextBox Name="tbGraphValue" Padding="5" Foreground="White" Background="Transparent" BorderBrush="#FFC143" Width="90" Height="30">
+                                <TextBox.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="5"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                
+                <!--StackPanel for create button-->
+                <StackPanel>
+                    <Button Name="btnCreate" ToolTip="Create your Diagram" BorderThickness="0" Click="btnCreate_Click" Margin="15,10,10,10"  Background="Transparent" Visibility="Collapsed">
+                        <StackPanel>
+                            <Image Source="Images/magic-wand.png" Width="40"/>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Grid Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center"
+                                                                             VerticalAlignment="Center"/>
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+                <!--StackPanel for back button-->
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Button Name="btnBack" ToolTip="Back" BorderThickness="0" Click="btnBack_Click" Margin="15,10,10,10"  Background="Transparent">
+                        <StackPanel>
+                            <Image Source="Images/previous.png" Width="30"/>
+                        </StackPanel>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Grid Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                                                    </Grid>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+                
             </StackPanel>
         </StackPanel>
-            <StackPanel Name="ChartSP" Grid.Column="1" Grid.Row="1">
+        <StackPanel Name="ChartSP" Grid.Column="1" Grid.Row="1">
 
-            </StackPanel>
-        
+        </StackPanel>
+
     </Grid>
 </Window>

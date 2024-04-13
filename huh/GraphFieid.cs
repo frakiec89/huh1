@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace huh
 {
-    public class Graph
+    public class GraphFieid
     {
-        public string graphType { get; set; }
-        public GraphFieid graphField { get; set; }
- 
+        public float graphValue { get; set; }
+        public string graphName { get; set; }
     }
 }

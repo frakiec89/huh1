@@ -11,9 +11,15 @@
   <ItemGroup>
     <None Remove="Images\bar-graph.png" />
     <None Remove="Images\close.png" />
+    <None Remove="Images\exelf.png" />
     <None Remove="Images\graph.png" />
     <None Remove="Images\graphic.png" />
+    <None Remove="Images\jsonf.png" />
+    <None Remove="Images\magic-wand.png" />
     <None Remove="Images\pie-chart.png" />
+    <None Remove="Images\play.png" />
+    <None Remove="Images\previous.png" />
+    <None Remove="Images\typing.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,9 +33,17 @@
   <ItemGroup>
     <Resource Include="Images\bar-graph.png" />
     <Resource Include="Images\close.png" />
+    <Resource Include="Images\exelf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\graph.png" />
     <Resource Include="Images\graphic.png" />
+    <Resource Include="Images\jsonf.png" />
+    <Resource Include="Images\magic-wand.png" />
     <Resource Include="Images\pie-chart.png" />
+    <Resource Include="Images\play.png" />
+    <Resource Include="Images\previous.png" />
+    <Resource Include="Images\typing.png" />
   </ItemGroup>
 
 </Project>
