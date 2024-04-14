@@ -37,6 +37,7 @@ namespace huh
         private void btnPChart_Click(object sender, RoutedEventArgs e)
         {
             spExport.Visibility = Visibility.Visible;
+           
 
         }
 
@@ -54,6 +55,11 @@ namespace huh
         private void btnTyping_Click(object sender, RoutedEventArgs e)
         {
             spManualInput.Visibility = Visibility.Visible;
+            spTypyOfDiagram.Visibility = Visibility.Collapsed;
+            spExport.Visibility = Visibility.Collapsed;
+            int tb = Convert.ToInt32(tbFields.Text); //НЕ НРАВИТСЯ ЕМУ ЧТО ТО ТУТ
+
+            graph.graphField.fieldQuantity = tb;
         }
 
         private void btnExcel_Click(object sender, RoutedEventArgs e)
