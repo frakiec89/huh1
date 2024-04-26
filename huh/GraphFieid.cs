@@ -8,8 +8,8 @@ namespace huh
 {
     public class GraphFieid
     {
-        public int fieldQuantity { get; set; }
-        public float graphValue { get; set; }
         public string graphName { get; set; }
+        public int graphValue { get; set; }
+     
     }
 }
