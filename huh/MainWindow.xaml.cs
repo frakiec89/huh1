@@ -36,6 +36,8 @@ namespace huh
             InitializeComponent();
 
             gc = new GraphConstruc(graph);
+
+            //this.DataContext = new GraphConstruc(graph).getVG();
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -129,8 +131,11 @@ namespace huh
 
             }
 
-            
-            ChartSP.Children.Add(new SfChart());
+            //---------МАГИЧЕСКАЯ КНОПКА КРАФТИТ ДИАГРАММУ
+            gc.getVG();
+            //this.DataContext = gc.vg.graphs;
+
+
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace huh
 {
@@ -10,11 +11,13 @@ namespace huh
     {
         public string graphName { get; set; }
         public int graphValue { get; set; }
-     
+
         public GraphField(string graphName, int graphValue)
         {
             this.graphName = graphName;
             this.graphValue = graphValue;
         }
+
+        public GraphField() { }
     }
 }

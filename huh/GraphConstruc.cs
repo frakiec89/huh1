@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace huh
 {
@@ -11,16 +13,15 @@ namespace huh
     {
         ArrayList names;
         ArrayList values;
-        ViewGraph vg;
+        public ViewGraph vg;
         Graph graph;
-        bool c = false;
 
         public GraphConstruc(Graph graph)
         {
             names = new ArrayList();
             values = new ArrayList();
-            ViewGraph vg = new ViewGraph();
             this.graph = graph;
+            vg = new ViewGraph();
         }
 
         public void addName(String name)
@@ -39,13 +40,11 @@ namespace huh
             {
                 vg.addGraphField((String)names[i], (int)values[i]);
             }
-            c = true;
         }
 
-        public ViewGraph getVG()
+        public void getVG()
         {
-            if (!c) craft();
-            return vg;
+            craft();
         }
     }
 }

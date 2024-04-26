@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF" 
-        xmlns:charting="using:Syncfusion.UI.Xaml.Charts"
+        xmlns:charting="using:Syncfusion.UI.Xaml.Charts" xmlns:local="clr-namespace:huh"
         mc:Ignorable="d"
         Title="Creating Diagramms" Height="1000" Width="1000" ResizeMode="NoResize" WindowStyle="None"  Background="#140115" Icon="Images/graph.png">
     <Window.Resources>
@@ -25,9 +25,11 @@
             <Setter Property="CornerRadius" Value="5"/>
         </Style>
     </Window.Resources>
-    <!--<Window.DataContext>
+
+
+    <Window.DataContext>
         <local:ViewGraph/>
-    </Window.DataContext>-->
+    </Window.DataContext>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -502,7 +504,32 @@
 
             <StackPanel Name="spVChart" Visibility="Visible">
 
-               
+                <syncfusion:SfChart Header="Chart" Width="500">
+
+                    <syncfusion:SfChart.PrimaryAxis>
+                        <syncfusion:CategoryAxis Header="Name" FontSize="14" Foreground="White"/>
+                    </syncfusion:SfChart.PrimaryAxis>
+
+
+                    <syncfusion:SfChart.SecondaryAxis>
+                        <syncfusion:NumericalAxis Header="Value" FontSize="14" Foreground="White"/>
+                    </syncfusion:SfChart.SecondaryAxis>
+
+
+                    <syncfusion:SfChart.Legend>
+                        <syncfusion:ChartLegend/>
+                    </syncfusion:SfChart.Legend>
+
+
+                    <syncfusion:ColumnSeries Label="Value" ItemsSource="{Binding graphs}" XBindingPath="graphName" YBindingPath="graphValue" ShowTooltip="True" >
+                        <syncfusion:ColumnSeries.AdornmentsInfo>
+                            <syncfusion:ChartAdornmentInfo ShowLabel="True" >
+                            </syncfusion:ChartAdornmentInfo>
+                        </syncfusion:ColumnSeries.AdornmentsInfo>
+                    </syncfusion:ColumnSeries>
+
+                </syncfusion:SfChart>
+
             </StackPanel>
 
 

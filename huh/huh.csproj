@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Syncfusion.SfChart.WPF" Version="25.1.40" />
+    <PackageReference Include="Syncfusion.SfChart.WPF" Version="25.1.41" />
   </ItemGroup>
 
   <ItemGroup>
