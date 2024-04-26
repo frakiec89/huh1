@@ -27,16 +27,15 @@ namespace huh
     {
         public string inte;
         Graph graph = new Graph();
-       public string integ;
-        List<GraphFieid> gv;
+        public string integ;
+        GraphConstruc gc;
 
 
         public MainWindow()
         {
             InitializeComponent();
 
-            gv = new List<GraphFieid>();
-
+            gc = new GraphConstruc(graph);
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -104,22 +103,34 @@ namespace huh
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(gv.ToString(), "MESSAGE", MessageBoxButton.OK, MessageBoxImage.Information);
+            foreach (var stack in spValue.Children)
+            {
 
-            //switch (graph.graphType)
-            //{
+                StackPanel stackPanel = stack as StackPanel;
 
-            //    case "PieChart":
+                foreach (var tbn in stackPanel.Children)
+                {
+                    if (tbn != null)
+                    {
+                        TextBox textBox = tbn as TextBox;
+                        if (textBox != null)
+                        {
+                            if (textBox.Name.Equals("tbGraphName"))
+                            {
+                                gc.addName(textBox.Text);
+                            }
+                            else
+                            {
+                                gc.addValues(Int32.Parse(textBox.Text));
+                            }
+                        }
+                    }
+                }
 
-            //        break;
-            //    case "HChart":
+            }
 
-            //        break;
-            //    case "VChart":
-
-            //        break;
-
-            //}
+            
+            ChartSP.Children.Add(new SfChart());
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
@@ -127,9 +138,9 @@ namespace huh
             spValue.Visibility = Visibility.Visible;
             XamlFieldsCreater xamlFieldsCreater = new XamlFieldsCreater();
             integ = tbFields.Text;
-            //xamlFieldsCreater.XFCreater();
             Graph graphField = new Graph();
-            GraphFieid fieid = new GraphFieid();
+            int loopValue;
+            string loopName;
 
             if (String.IsNullOrEmpty(integ))
             {
@@ -141,63 +152,69 @@ namespace huh
                 {
 
                     graphField.fieldQuantity = int.Parse(integ);
-                    int loopValue;
-                    string loopName;
+
                     for (int i = 0; i < graphField.fieldQuantity; i++)
                     {
-                        StackPanel stackPanel = new StackPanel()
-                        {
-                            Orientation = Orientation.Horizontal,
-                            Name = "spForTwoFields" + i,
-
-                        };
-                        spValue.Children.Add(stackPanel);
-                        Label label = new Label()
-                        {
-                            Content = "Enter name of graph:",
-
-                        };
-                        stackPanel.Children.Add(label);
-                        TextBox textBox = new TextBox()
-                        {
-                            Name = "tbGraphName" + i,
-
-
-                        };
-                        stackPanel.Children.Add(textBox);
-                        loopName = textBox.Text;
-                        StackPanel stackPanel2 = new StackPanel()
-                        {
-                            Orientation = Orientation.Horizontal,
-                            Name = "spForTwoFields" + i,
-
-                        };
-                        spValue.Children.Add(stackPanel2);
-                        Label label2 = new Label()
-                        {
-                            Content = "Enter value of graph:",
-
-                        };
-                        stackPanel2.Children.Add(label2);
-                        TextBox textBox2 = new TextBox()
-                        {
-                            Name = "tbGraphName" + i,
-                        };
-                        stackPanel2.Children.Add(textBox2);
-                        loopValue = int.Parse(textBox2.Text);
-                        gv.Add(new GraphFieid() { graphName = loopName, graphValue = loopValue });
+                        createField();
                     }
 
                 }
-                catch
+                catch (Exception ex) 
                 {
-
-                    MessageBox.Show("Enter the number.", "MESSAGE", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(ex.ToString(), "MESSAGE", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                
             }
             spBtnCreate.Visibility = Visibility.Visible;
         }
 
+        private void createField()
+        {
+            //это стек нейм
+            StackPanel spPanelN = new StackPanel()
+            {
+                Orientation = Orientation.Horizontal,
+                Name = "spForTwoFields"
+            };
+
+            spPanelN.Children.Add(getLabelN());
+            spPanelN.Children.Add(getBoxN());
+            //это стек нейм
+
+
+            //это стек вэлью
+            StackPanel spPanelV = new StackPanel()
+            {
+                Orientation = Orientation.Horizontal,
+                Name = "spForTwoFields"
+            };
+
+            spPanelV.Children.Add(getLabelV());
+            spPanelV.Children.Add(getBoxV());
+            //это стек вэлью
+
+            spValue.Children.Add(spPanelN);
+            spValue.Children.Add(spPanelV);
+        }
+        
+
+        private Label getLabelN()
+        {
+            return new Label() { Content = "Enter name of graph:" };
+        }
+        private TextBox getBoxN()
+        {
+            return new TextBox() { Name = "tbGraphName" };
+        
+        }
+        private Label getLabelV()
+        {
+            return new Label() { Content = "Enter value of graph:" };
+        }
+        private TextBox getBoxV()
+        {
+            return new TextBox() { Name = "tbGraphValue" };
+
+        }
     }
 }

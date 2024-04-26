@@ -502,16 +502,7 @@
 
             <StackPanel Name="spVChart" Visibility="Visible">
 
-                <!--<syncfusion:SfChart>
-                    <syncfusion:SfChart.PrimaryAxis>
-                        <syncfusion:CategoryAxis Header="Name" />
-                    </syncfusion:SfChart.PrimaryAxis>
-                    <syncfusion:SfChart.SecondaryAxis>
-                        <syncfusion:NumericalAxis Header="Value"/>
-                    </syncfusion:SfChart.SecondaryAxis>
-                    <syncfusion:ColumnSeries  ItemsSource="{Binding graphs}" XBindingPath="Name" YBindingPath="Value" >
-                    </syncfusion:ColumnSeries>
-                </syncfusion:SfChart>-->
+               
             </StackPanel>
 
 
