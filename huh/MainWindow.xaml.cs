@@ -132,8 +132,11 @@ namespace huh
             }
 
             //---------МАГИЧЕСКАЯ КНОПКА КРАФТИТ ДИАГРАММУ
-            gc.getVG();
-            //this.DataContext = gc.vg.graphs;
+           
+            ViewGraph graph = new ViewGraph();
+            graph.addGraphField("DSDS", 111); 
+           
+            this.DataContext = graph.graphs;
 
 
         }

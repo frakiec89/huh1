@@ -20,9 +20,12 @@ namespace huh
             };
         }
 
+
+
+       
         public void addGraphField(String str, int integ)
         {
-            MessageBox.Show(str + " " + integ, "MESSAGE", MessageBoxButton.OK, MessageBoxImage.Information);
+          //  MessageBox.Show(str + " " + integ, "MESSAGE", MessageBoxButton.OK, MessageBoxImage.Information);
             graphs.Add(new GraphField()
             {
                 graphName = str,
