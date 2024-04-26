@@ -27,9 +27,7 @@
     </Window.Resources>
 
 
-    <Window.DataContext>
-        <local:ViewGraph/>
-    </Window.DataContext>
+   
 
     <Grid>
         <Grid.ColumnDefinitions>

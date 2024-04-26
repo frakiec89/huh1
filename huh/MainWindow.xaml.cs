@@ -28,14 +28,14 @@ namespace huh
         public string inte;
         Graph graph = new Graph();
         public string integ;
-        GraphConstruc gc;
+
+        List<GraphField> graphs = new List<GraphField>();
+      
 
 
         public MainWindow()
         {
             InitializeComponent();
-
-            gc = new GraphConstruc(graph);
 
             //this.DataContext = new GraphConstruc(graph).getVG();
         }
@@ -112,31 +112,40 @@ namespace huh
 
                 foreach (var tbn in stackPanel.Children)
                 {
+                    GraphField graphField = new GraphField();
                     if (tbn != null)
                     {
                         TextBox textBox = tbn as TextBox;
-                        if (textBox != null)
+                        if (textBox != null && textBox.Name == "tbGraphName")
                         {
-                            if (textBox.Name.Equals("tbGraphName"))
-                            {
-                                gc.addName(textBox.Text);
-                            }
-                            else
-                            {
-                                gc.addValues(Int32.Parse(textBox.Text));
-                            }
+                            graphField.graphName = textBox.Text;    
                         }
+
+
+                        if (textBox != null && textBox.Name == "tbGraphValue")
+                        {
+                            try
+                            {
+                                graphField.graphValue = Convert.ToInt32(textBox.Text);
+                            }
+                            catch (Exception)
+                            {
+                                graphField.graphValue = 0;
+                            }
+                         
+                        }
+
+                        
                     }
+                    graphs.Add(graphField);
                 }
 
             }
 
             //---------МАГИЧЕСКАЯ КНОПКА КРАФТИТ ДИАГРАММУ
            
-            ViewGraph graph = new ViewGraph();
-            graph.addGraphField("DSDS", 111); 
-           
-            this.DataContext = graph.graphs;
+            ViewGraph graph = new ViewGraph(graphs);
+            this.DataContext = graph;
 
 
         }
